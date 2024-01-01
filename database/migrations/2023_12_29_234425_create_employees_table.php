@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('emp_name');
             $table->date('dob');
             $table->string('phone')->nullable();
+            $table->string('email')->unique();
+            $table->string('password');
 
             $table->timestamps();
         });

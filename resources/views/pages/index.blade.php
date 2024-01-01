@@ -24,6 +24,15 @@
                             <input type="date" class="form-control" name="dob">
 
                         </div>
+                        <div class="col-md-6">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -48,6 +57,7 @@
                         <th scope="col">Employee Name</th>
                         <th scope="col">DOB</th>
                         <th scope="col">Phone</th>
+                        <th scope="coll">email</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
@@ -60,14 +70,16 @@
                             <td scope="col">{{ $employee->emp_name }}</td>
                             <td scope="col">{{ $employee->dob }}</td>
                             <td scope="col">{{ $employee->phone }}</td>
-                            <td scope="col">
+                            <td scope="col">{{$employee->email}}</td>
+
+                            <td scope="">
 
                             <a href="{{  route('employee.edit', $employee->id) }}">
                             <button class="btn btn-primary btn-sm">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                             </button>
                             </a>
-                            
+                        
                             <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style ="display:inline">
                              @csrf
                             @method('DELETE')
