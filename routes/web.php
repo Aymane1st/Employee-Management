@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/', function () {
 });
 
 route::resource("/employee", EmployeeController::class);
+
+Route::get("/login",[ LoginController::class,'show'])->name('login.show');
+Route::post("/login",[ LoginController::class,'login'])->name('login');
