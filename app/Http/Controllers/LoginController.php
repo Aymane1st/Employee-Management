@@ -19,14 +19,14 @@ class LoginController extends Controller
         $credentials = ['email' => $login, "password" => $password];
         
         
-       if(Auth::attempt($credentials)){
+       if(Auth::attempt($credentials)) {
            $request->session()->regenerate();
            return redirect('employee')->with('success', 'Successfully logged in');
-       } else {
+      } else {
            return back()->withErrors([
-               'login' => 'Invalid email or password.'
-          ])->withInput();
+              'login' => 'Invalid email or password.'
+        ])->withInput();
        }
   
     }
-}
+    }

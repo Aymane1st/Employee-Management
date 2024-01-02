@@ -9,6 +9,7 @@ class EmployeeController extends Controller
 {
 
     protected $employee;
+    
 
     public function __construct(){
 
@@ -21,6 +22,8 @@ class EmployeeController extends Controller
     {
         $response['employees'] = $this->employee->all();
         return view('pages.index')->with($response);
+       
+
     }
 
 
@@ -56,4 +59,6 @@ class EmployeeController extends Controller
         $employee->delete();
         return redirect('employee');
     }
+
+    
 }

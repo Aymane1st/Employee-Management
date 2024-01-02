@@ -16,10 +16,17 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.show');
 });
 
 route::resource("/employee", EmployeeController::class);
 
 Route::get("/login",[ LoginController::class,'show'])->name('login.show');
 Route::post("/login",[ LoginController::class,'login'])->name('login');
+
+
+/* Route::get('/employee', ['middleware' => 'auth', function () {
+    return View::make('/pages/index');
+}]); */
+
+Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth');
